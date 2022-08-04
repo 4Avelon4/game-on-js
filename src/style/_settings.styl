@@ -1,0 +1,53 @@
+:root
+  --container-width 290px
+  --container-padding-top-bottom 15px
+  --container-padding-right-left 15px
+  --breakpoint-counter 1
+  --card-padding calc((12 - var(--card-count)) / 2 + var(--breakpoint-counter))
+
+  +sm()
+    --container-width 510px
+    --container-padding-top-bottom 33px
+    --container-padding-right-left 20px
+    --breakpoint-counter 2
+
+  +md()
+    --container-width 600px
+    --container-padding-top-bottom 84px
+    --breakpoint-counter 3
+
+html
+  box-sizing: border-box
+
+*
+::before
+::after
+  box-sizing: inherit
+
+a
+  color: inherit
+  text-decoration: none
+
+img
+  max-width 100%
+
+html
+body
+  padding 0
+  margin 0
+  font-family roboto, serif
+
+body
+  width 100%
+  min-height 100vh
+  background body-background
+
+.container
+  display flex
+  flex-direction column
+  margin 0 auto
+  padding var(--container-padding-right-left) var(--container-padding-top-bottom)
+  width calc(var(--container-width) + var(--container-padding-top-bottom) * 2)
+
+.title
+  margin 0

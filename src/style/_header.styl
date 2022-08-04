@@ -1,0 +1,152 @@
+.header
+  position relative
+
+  &-top__items
+  &-bottom__items
+    margin 0
+    padding 0
+    list-style none
+
+  &-top
+    margin-bottom 20px
+
+    +sm()
+      margin-bottom 30px
+
+    &__items
+      display flex
+      justify-content space-between
+
+    &__item:not(:last-child)
+      margin-right 20px
+
+    &__title
+      margin 0
+      font-size 16px
+      line-height 130%
+
+    &__link
+      color text-color
+      transition color, 0.2s
+
+      &:active
+        color active-link-color
+
+      +sm()
+        font-size 20px
+        line-height 150%
+
+      +md()
+        font-size 23px
+
+        &:hover,
+        &:focus
+          outline none
+          color hover-color
+
+        &:active
+          color active-link-color
+
+  &-bottom
+    &__items
+      display none
+      justify-content center
+      align-items center
+      flex-wrap wrap
+      margin auto
+      width 260px
+
+      +sm()
+        width 310px
+
+    &__item
+      display flex
+      width 60px
+      height 80px
+      cursor pointer
+      transition transform 0.2s
+
+      &:active
+        transform scale(1.1)
+
+      +sm()
+        width 72px
+        height 96px
+
+        &:hover,
+        &:focus
+          outline none
+          transform scale(1.2)
+
+        &:active
+          transform scale(1.1)
+
+      &:not(:nth-child(3n))
+        margin-right 15px
+
+        +sm()
+          margin-right 30px
+
+    &__timer
+      display flex
+      justify-content center
+      align-items flex-end
+
+.timer__descr
+  font-weight 700
+  font-size 60px
+  color text-color
+
+  +sm()
+    font-size 70px
+
+.header-bottom__items
+.header-bottom__timer
+.form
+  min-height 160px
+
+  +sm()
+    min-height 200px
+
+.form
+  display none
+  flex-direction column
+  justify-content center
+  align-items center
+
+  &__label
+    display flex
+    flex-direction column
+    align-items center
+    width 100%
+    max-width 400px
+
+  &__descr
+    display inline-block
+    margin-bottom 10px
+    font-size 13px
+    color text-color
+
+    +sm()
+      margin-bottom 15px
+      font-size 16px
+
+  &__input
+    margin-bottom 20px
+    padding 20px 30px
+    width 100%
+    border-radius 20px
+    border none
+    font-size 14px
+    color body-background
+    transition outline, 0.15s
+
+    +sm()
+      padding 25px 35px
+      font-size 16px
+
+    &:focus
+      outline 4px solid accent-color
+
+    &::placeholder
+      color body-background
