@@ -47,8 +47,10 @@ function createGame() {
 
   for (let i = cardsNumberArray.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
-    // eslint-disable-next-line prettier/prettier
-    [cardsNumberArray[i], cardsNumberArray[j]] = [cardsNumberArray[j], cardsNumberArray[i]];
+    [cardsNumberArray[i], cardsNumberArray[j]] = [
+      cardsNumberArray[j],
+      cardsNumberArray[i],
+    ];
   }
 
   for (const cardNumber of cardsNumberArray) {
@@ -67,14 +69,14 @@ function runGameLogic() {
   let [hasFlippedCard, lockBoard] = [false, false];
 
   function flipCard() {
-    // eslint-disable-next-line prettier/prettier
-    headerBottomItems.classList.contains('--active-flex') && headerBottomItems.classList.remove('--active-flex');
+    headerBottomItems.classList.contains('--active-flex') &&
+      headerBottomItems.classList.remove('--active-flex');
 
-    // eslint-disable-next-line prettier/prettier
-    form.classList.contains('--active-flex') && form.classList.remove('--active-flex');
+    form.classList.contains('--active-flex') &&
+      form.classList.remove('--active-flex');
 
-    // eslint-disable-next-line prettier/prettier
-    timer.classList.contains('--active-none') && timer.classList.remove('--active-none');
+    timer.classList.contains('--active-none') &&
+      timer.classList.remove('--active-none');
 
     if (!timeToggler) {
       timeToggler = true;
@@ -107,8 +109,10 @@ function runGameLogic() {
 
     checkForMatch();
 
-    // eslint-disable-next-line prettier/prettier
-    if (document.querySelectorAll('.memory-game__card.card.flip').length === cardsNumberArray.length) {
+    if (
+      document.querySelectorAll('.memory-game__card.card.flip').length ===
+      cardsNumberArray.length
+    ) {
       clearTimer();
       toggleRecreateGameButton();
     }
@@ -129,8 +133,7 @@ function runGameLogic() {
   function unflipCards() {
     lockBoard = true;
 
-    // eslint-disable-next-line prettier/prettier
-    setTimeout(_ => {
+    setTimeout(() => {
       if (firstCard !== null && secondCard !== null) {
         firstCard.classList.remove('flip');
         secondCard.classList.remove('flip');
@@ -146,8 +149,7 @@ function runGameLogic() {
     [firstCard, secondCard] = [null, null];
   }
 
-  // eslint-disable-next-line prettier/prettier
-  cards.forEach(card => card.addEventListener('click', flipCard));
+  cards.forEach((card) => card.addEventListener('click', flipCard));
   document.location.href = '#timer';
 }
 
@@ -157,8 +159,7 @@ function toggleRecreateGameButton() {
   buttonNewGame.classList.add('--active-block');
   document.location.href = '#footer__button';
 
-  // eslint-disable-next-line prettier/prettier
-  buttonNewGame.addEventListener('click', _ => {
+  buttonNewGame.addEventListener('click', () => {
     clearGame();
     createGame();
   });
@@ -184,16 +185,14 @@ function clearTimer() {
 
   buttonForm.disabled = true;
 
-  // eslint-disable-next-line prettier/prettier
-  inputForm.addEventListener('input', _ => {
+  inputForm.addEventListener('input', () => {
     buttonForm.disabled = inputForm.value === '';
   });
 
-  // eslint-disable-next-line prettier/prettier
-  form.addEventListener('submit', event => {
+  form.addEventListener('submit', (event) => {
     event.preventDefault();
-    // eslint-disable-next-line prettier/prettier
-    timer.classList.contains('--active-none') && timer.classList.remove('--active-none');
+    timer.classList.contains('--active-none') &&
+      timer.classList.remove('--active-none');
 
     if (!inputForm.value) {
       return;
@@ -205,8 +204,9 @@ function clearTimer() {
 
     form.classList.remove('--active-flex');
     document.documentElement.style.setProperty('--card-count', cardsCount);
-    // eslint-disable-next-line prettier/prettier
-    document.querySelector('.header-top__link--form').classList.remove('--active-link');
+    document
+      .querySelector('.header-top__link--form')
+      .classList.remove('--active-link');
     clearTimer();
     clearGame();
     createGame();
@@ -217,30 +217,28 @@ function clearTimer() {
 
     document.location.href = '#timer';
   });
-  // eslint-disable-next-line prettier/prettier
-}());
+})();
 
 const headerLink = document.querySelectorAll('.header-top__link');
 
-// eslint-disable-next-line prettier/prettier
-headerLink.forEach(link => link.addEventListener('click', event => {
-    // eslint-disable-next-line prettier/prettier
-  const targetForm = event.target.dataset.link === 'form';
+headerLink.forEach((link) =>
+  link.addEventListener('click', (event) => {
+    const targetForm = event.target.dataset.link === 'form';
 
-    // eslint-disable-next-line prettier/prettier
-  targetForm ? toggleOptionsGame(link, form, headerBottomItems) : toggleOptionsGame(link, headerBottomItems, form);
+    targetForm
+      ? toggleOptionsGame(link, form, headerBottomItems)
+      : toggleOptionsGame(link, headerBottomItems, form);
   })
 );
 
 function toggleOptionsGame(linkElement, addElement, removeElement) {
-  // eslint-disable-next-line prettier/prettier
-  removeElement.classList.contains('--active-flex') && removeElement.classList.remove('--active-flex');
+  removeElement.classList.contains('--active-flex') &&
+    removeElement.classList.remove('--active-flex');
 
-  // eslint-disable-next-line prettier/prettier
-  !timer.classList.contains('--active-none') && timer.classList.add('--active-none');
+  !timer.classList.contains('--active-none') &&
+    timer.classList.add('--active-none');
 
-  // eslint-disable-next-line prettier/prettier
-  headerLink.forEach(link => link.classList.remove('--active-link'));
+  headerLink.forEach((link) => link.classList.remove('--active-link'));
 
   if (addElement.classList.contains('--active-flex')) {
     linkElement.classList.remove('--active-link');
@@ -252,21 +250,19 @@ function toggleOptionsGame(linkElement, addElement, removeElement) {
   }
 }
 
-// eslint-disable-next-line prettier/prettier
-document.querySelectorAll('.header-bottom__item').forEach(imgStyle => {
-  // eslint-disable-next-line prettier/prettier
-  ['click', 'keydown'].forEach(eventTarget => {
-    // eslint-disable-next-line prettier/prettier
-    imgStyle.addEventListener(eventTarget, event => {
+document.querySelectorAll('.header-bottom__item').forEach((imgStyle) => {
+  ['click', 'keydown'].forEach((eventTarget) => {
+    imgStyle.addEventListener(eventTarget, (event) => {
       if (eventTarget === 'click' || event.keyCode === 13) {
         const style = event.currentTarget.dataset.style;
 
         cardStyle = style;
-        // eslint-disable-next-line prettier/prettier
-        document.querySelector('.header-top__link--img').classList.remove('--active-link');
+        document
+          .querySelector('.header-top__link--img')
+          .classList.remove('--active-link');
 
-        // eslint-disable-next-line prettier/prettier
-        timer.classList.contains('--active-none') && timer.classList.remove('--active-none');
+        timer.classList.contains('--active-none') &&
+          timer.classList.remove('--active-none');
 
         headerBottomItems.classList.remove('--active-flex');
         document.documentElement.style.setProperty('--card-count', cardsCount);
