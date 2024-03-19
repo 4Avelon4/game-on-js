@@ -1,79 +1,117 @@
 <!DOCTYPE html>
 <html lang="ru">
+  <head>
+    <title>Game</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
 
-<head>
-  <title>Game</title>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-
-<body>
-  <header class="header">
-    <div class="container header__container">
-      <div class="header__top header-top">
-        <ul class="header-top__items">
-          <li class="header-top__item">
-            <h2 class="header-top__title title">
-              <a href="#" class="header-top__link header-top__link--form" data-link="form">Выбрать сложность игры</a>
-            </h2>
-          </li>
-          <li class="header-top__item">
-            <h2 class="header-top__title title">
-              <a href="#" class="header-top__link header-top__link--img">Выбрать стиль карточек</a>
-            </h2>
-          </li>
-        </ul>
-      </div>
-      <div class="header__bottom header-bottom">
-        <form action="#" class="header-bottom__form form --active-flex">
-          <label class="form__label" for="number-cards">
-            <span class="form__descr">Кол-во карточек по вертикали/горизонтали</span>
-            <input class="form__input" id="number-cards" type="number" placeholder="Введите число">
-          </label>
-          <button class="form__button btn">Начать игру</button>
-        </form>
-        <ul class="header-bottom__items">
-          <li class="header-bottom__item" tabindex="0" data-style="img/js-badge.svg">
-            <img class="header-bottom__img" src="img/js-badge.svg" alt="">
-          </li>
-          <li class="header-bottom__item" tabindex="0" data-style="img/aurelia.svg">
-            <img class="header-bottom__img" src="img/aurelia.svg" alt="">
-          </li>
-          <li class="header-bottom__item" tabindex="0" data-style="img/backbone.svg">
-            <img class="header-bottom__img" src="img/backbone.svg" alt="">
-          </li>
-          <li class="header-bottom__item" tabindex="0" data-style="img/angular.svg">
-            <img class="header-bottom__img" src="img/angular.svg" alt="">
-          </li>
-          <li class="header-bottom__item" tabindex="0" data-style="img/react.svg">
-            <img class="header-bottom__img" src="img/react.svg" alt="">
-          </li>
-          <li class="header-bottom__item" tabindex="0" data-style="img/vue.svg">
-            <img class="header-bottom__img" src="img/vue.svg" alt="">
-          </li>
-        </ul>
-        <div class="header-bottom__timer timer --active-none">
-          <span class="timer__descr" id="timer"></span>
+  <body>
+    <header class="header">
+      <div class="container header__container">
+        <div class="header__top header-top">
+          <ul class="header-top__items">
+            <li class="header-top__item">
+              <h2 class="header-top__title title">
+                <a
+                  href="#"
+                  class="header-top__link header-top__link--form"
+                  data-link="form"
+                  >Выбрать сложность игры</a
+                >
+              </h2>
+            </li>
+            <li class="header-top__item">
+              <h2 class="header-top__title title">
+                <a href="#" class="header-top__link header-top__link--img"
+                  >Выбрать стиль карточек</a
+                >
+              </h2>
+            </li>
+          </ul>
+        </div>
+        <div class="header__bottom header-bottom">
+          <form action="#" class="header-bottom__form form --active-flex">
+            <label class="form__label" for="number-cards">
+              <span class="form__descr"
+                >Кол-во карточек по вертикали/горизонтали</span
+              >
+              <input
+                class="form__input"
+                id="number-cards"
+                type="number"
+                placeholder="Введите число"
+              />
+            </label>
+            <button class="form__button btn">Начать игру</button>
+          </form>
+          <ul class="header-bottom__items">
+            <li
+              class="header-bottom__item"
+              tabindex="0"
+              data-style="img/js-badge.svg"
+            >
+              <img class="header-bottom__img" src="img/js-badge.svg" alt="" />
+            </li>
+            <li
+              class="header-bottom__item"
+              tabindex="0"
+              data-style="img/aurelia.svg"
+            >
+              <img class="header-bottom__img" src="img/aurelia.svg" alt="" />
+            </li>
+            <li
+              class="header-bottom__item"
+              tabindex="0"
+              data-style="img/backbone.svg"
+            >
+              <img class="header-bottom__img" src="img/backbone.svg" alt="" />
+            </li>
+            <li
+              class="header-bottom__item"
+              tabindex="0"
+              data-style="img/angular.svg"
+            >
+              <img class="header-bottom__img" src="img/angular.svg" alt="" />
+            </li>
+            <li
+              class="header-bottom__item"
+              tabindex="0"
+              data-style="img/react.svg"
+            >
+              <img class="header-bottom__img" src="img/react.svg" alt="" />
+            </li>
+            <li
+              class="header-bottom__item"
+              tabindex="0"
+              data-style="img/vue.svg"
+            >
+              <img class="header-bottom__img" src="img/vue.svg" alt="" />
+            </li>
+          </ul>
+          <div class="header-bottom__timer timer --active-none">
+            <span class="timer__descr" id="timer"></span>
+          </div>
         </div>
       </div>
-    </div>
-  </header>
-  <main class="main">
-    <section class="container memory-game">
-      <ul class="memory-game__cards" id="memory-game__cards"></ul>
-      <div class="end-game">
-        <div class="end-game__content">Время вышло!</div>
+    </header>
+    <main class="main">
+      <section class="container memory-game">
+        <ul class="memory-game__cards" id="memory-game__cards"></ul>
+        <div class="end-game">
+          <div class="end-game__content">Время вышло!</div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="footer__container container">
+        <form action="#" class="footer__form">
+          <button class="footer__button btn" id="footer__button">
+            Сыграть ещё раз
+          </button>
+        </form>
       </div>
-    </section>
-  </main>
-  <footer class="footer">
-    <div class="footer__container container">
-      <form action="#" class="footer__form">
-        <button class="footer__button btn" id="footer__button">Сыграть ещё раз</button>
-      </form>
-    </div>
-  </footer>
-</body>
-
+    </footer>
+  </body>
 </html>
